@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-textarea {
+textarea, input {
   font-size: 200%;
   font-family: sans-serif;
   caret-color: #4c8bf5;

@@ -56,7 +56,6 @@ class App extends React.Component {
           <div className="half">
             <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
             <h1>{this.state.taskCompleted ? next : ''}</h1>
-            <h3>{this.state.currentPrompt} {this.state.debug}</h3>
           </div>
           <div className="bottom half">
             <textarea onChange={this.handleChange}></textarea>
@@ -66,8 +65,13 @@ class App extends React.Component {
     }
     else return (
       <div className="App">
-        <h1>Done- please copy and paste the information below:</h1>
-        <textarea readonly onFocus={this.handleFocus}>{JSON.stringify(this.state.taskTimes)}</textarea>
+        <h1>Done- please copy and paste the information below, enter your participant ID, then tap submit:</h1>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdDzSs-JBDvNuYW225c3Dog4grp0oCIdLfWzQyM0egu6Cf6mg/formResponse" target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-response="%.@.[]]" data-first-entry="0" data-last-entry="1" data-is-first-page="true">
+          <textarea readonly name="entry.1431434204" onFocus={this.handleFocus}>{JSON.stringify(this.state.taskTimes)}</textarea>
+          <input name="entry.890606469" placeholder="Enter your participant ID here then tap Submit" />
+          <input name="entry.26542893" type="hidden" value={navigator.userAgent} />
+          <br/><input type="submit" value="Submit"/>
+        </form>
       </div>
     );
   }
