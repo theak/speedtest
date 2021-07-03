@@ -10,6 +10,10 @@ textarea {
   height: 80%;
 }
 
+button {
+  font-size: 50%;
+}
+
 div.half {
   width: 100%;
   position: absolute;
