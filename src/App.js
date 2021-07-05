@@ -10,7 +10,7 @@ function stripHtml(html) {
 
 const prompts = [
   {
-    "html": <span>Test</span>
+    "html": <span>T<b>e</b>st</span>
   }
 ];
 
@@ -51,9 +51,12 @@ class App extends React.Component {
   render() {
     if (this.state.currentPrompt < prompts.length) {
       const next = <Next currentPrompt={this.state.currentPrompt} onClick={this.handleNext}/>;
+      const promptIndicator = (this.state.currentPrompt >= 0) ? 
+          ((this.state.currentPrompt + 1) + " / " + prompts.length) : '';
       return (
         <div className="App">
           <div className="half">
+            <p>{promptIndicator}</p>
             <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
             <h1>{this.state.taskCompleted ? next : ''}</h1>
           </div>
@@ -65,7 +68,7 @@ class App extends React.Component {
     }
     else return (
       <div className="App">
-        <h1>Done- please copy and paste the information below, enter your participant ID, then tap submit:</h1>
+        <h1>Done- please copy the information below, enter your participant ID, then tap submit:</h1>
         <form action="https://docs.google.com/forms/d/e/1FAIpQLSdDzSs-JBDvNuYW225c3Dog4grp0oCIdLfWzQyM0egu6Cf6mg/formResponse" target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-response="%.@.[]]" data-first-entry="0" data-last-entry="1" data-is-first-page="true">
           <textarea readonly name="entry.1431434204" onFocus={this.handleFocus}>{JSON.stringify(this.state.taskTimes)}</textarea>
           <input name="entry.890606469" placeholder="Enter your participant ID here then tap Submit" />
