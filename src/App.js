@@ -49,10 +49,11 @@ class App extends React.Component {
   }
 
   handleNext(event) {
-    if (this.state.currentPrompt === -1 || prompts[this.state.currentPrompt].clear)
+    if (this.state.currentPrompt === -1 || prompts[this.state.currentPrompt].clear) {
       document.getElementById("textbox").value = "";
+    }
     this.setState({currentPrompt: this.state.currentPrompt + 1, 
-      taskCompleted: false, taskStartTime: Date.now()})
+      taskCompleted: false, taskStartTime: Date.now()}, () => document.getElementById("textbox").focus())
   }
 
   handleFocus(event) {
