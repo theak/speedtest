@@ -16,7 +16,7 @@ const prompts = [
   {html: <p><i>Clear and replace text with:</i>Yo Jason, what's up?</p>, clear: true},
   {html: <p>I would love to catch up. Are you free on Thursday night for a beer?</p>, clear: false},
   {html: <p><i>Change Thursday to Friday:</i>I would love to catch up. Are you free on <b>Friday</b> night for a beer?</p>, clear: true},
-  {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it’s my birthday so I want to start the celebration early 🎂🎉</p>, clear: true},
+  {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it's my birthday so I want to start the celebration early 🎂 🎉</p>, clear: true},
   {html: <p>I will ask Kathryn and John if they want to join as well</p>, clear: true},
   {html: <p>She always talks about calcio</p>, clear: true},
   {html: <p>Anyways, I hope she can join us</p>, clear: true},
@@ -42,10 +42,11 @@ class App extends React.Component {
   }
 
   handleChange(event) {
+    const strip = (str) => str.replaceAll(' ', '');
     if (this.state.taskCompleted) return;
     console.log(event.target.value);
     console.log(prompts[this.state.currentPrompt].text);
-    if (event.target.value.indexOf(prompts[this.state.currentPrompt].text) > -1)
+    if (strip(event.target.value).indexOf(strip(prompts[this.state.currentPrompt].text)) > -1)
       this.setState({taskCompleted: true, taskTimes: [...this.state.taskTimes, Date.now() - this.state.taskStartTime]});
   }
 
