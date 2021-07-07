@@ -56,9 +56,11 @@ class App extends React.Component {
       currentPrompt: this.state.currentPrompt + 1,
       taskCompleted: false, taskStartTime: Date.now()
     }, () => {
-      const textbox = document.getElementById("textbox");
-      if (this.state.shouldClear) textbox.value = "";
-      textbox.focus();
+      if (this.state.currentPrompt < prompts.length) {
+        const textbox = document.getElementById("textbox");
+        if (this.state.shouldClear) textbox.value = "";
+        textbox.focus();
+      }
     });
   }
 
