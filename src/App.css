@@ -17,6 +17,11 @@ button {
 b {
   color: red;
 }
+i {
+  display: block;
+  font-size: 50%;
+  margin-bottom: 1%;
+}
 
 div.half {
   width: 100%;

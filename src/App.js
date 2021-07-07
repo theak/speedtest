@@ -5,11 +5,12 @@ import './App.css';
 
 function stripHtml(html) {
   const str = ReactDOMServer.renderToStaticMarkup(html);
-  return str.replace(/(<([^>]+)>)/gi, "");
+  const parts = str.replace(/(<([^>]+)>)/gi, "").split(':');
+  return parts[parts.length - 1];
 }
 
 const prompts = [
-  {html: <span>T<b>e</b>st</span>, clear: true},
+  {html: <span><i>Instructions:</i>T<b>e</b>st</span>, clear: true},
   {html: <p>Hello</p>, clear: false}
 ];
 
