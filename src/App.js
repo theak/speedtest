@@ -41,9 +41,10 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    if (this.state.currentPrompt === -1) return;
+    if (this.state.taskCompleted) return;
     console.log(event.target.value);
     console.log(prompts[this.state.currentPrompt].text);
+    console.log(event.target.value.indexOf(prompts[this.state.currentPrompt].text));
     if (event.target.value.indexOf(prompts[this.state.currentPrompt].text) > -1)
       this.setState({taskCompleted: true, taskTimes: [...this.state.taskTimes, Date.now() - this.state.taskStartTime]});
     //this.setState({debug: event.target.value});
