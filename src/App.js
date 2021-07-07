@@ -5,13 +5,15 @@ import './App.css';
 
 function stripHtml(html) {
   const str = ReactDOMServer.renderToStaticMarkup(html);
-  const parts = str.replace(/(<([^>]+)>)/gi, "").split(':');
+  var txt = document.createElement("textarea");
+  txt.innerHTML = str;
+  const parts = txt.value.replace(/(<([^>]+)>)/gi, "").split(':');
   return parts[parts.length - 1];
 }
 
 const prompts = [
-  {html: <span><i>Instructions:</i>T<b>e</b>st</span>, clear: true},
-  {html: <p>Hello</p>, clear: false}
+  {html: <p>Hello, how are you doing?</p>},
+  {html: <p><i>Change text to:</i>Yo Jason, what's up?</p>, clear: true}
 ];
 
 for (var i = 0; i < prompts.length; i++) {
