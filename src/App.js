@@ -32,6 +32,7 @@ class App extends React.Component {
     this.state = {
       currentPrompt: -1,
       taskCompleted: true,
+      shouldClear: true,
       taskStartTime: 0,
       taskTimes: [],
       debug: '',
@@ -49,11 +50,15 @@ class App extends React.Component {
   }
 
   handleNext(event) {
-    if (this.state.currentPrompt === -1 || prompts[this.state.currentPrompt].clear) {
-      document.getElementById("textbox").value = "";
-    }
-    this.setState({currentPrompt: this.state.currentPrompt + 1, 
-      taskCompleted: false, taskStartTime: Date.now()}, () => document.getElementById("textbox").focus())
+    this.setState({
+      shouldClear: this.state.currentPrompt < 0 || prompts[this.state.currentPrompt].clear,
+      currentPrompt: this.state.currentPrompt + 1,
+      taskCompleted: false, taskStartTime: Date.now()
+    }, () => {
+      const textbox = document.getElementById("textbox");
+      if (this.state.shouldClear) textbox.value = "";
+      textbox.focus();
+    });
   }
 
   handleFocus(event) {
