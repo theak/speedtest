@@ -12,8 +12,8 @@ function stripHtml(html) {
 }
 
 const prompts = [
-  {html: <p>Hello, how are you doing?</p>},
-  {html: <p><i>Replace text with:</i>Yo Jason, what's up?</p>, clear: true},
+  {html: <p>Hello how are you doing?</p>},
+  {html: <p><i>Clear and replace text with:</i>Yo Jason, what's up?</p>, clear: true},
   {html: <p>I would love to catch up. Are you free on Thursday night for a beer?</p>, clear: false},
   {html: <p><i>Change Thursday to Friday:</i>I would love to catch up. Are you free on <b>Friday</b> night for a beer?</p>, clear: true},
   {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it’s my birthday so I want to start the celebration early 🎂🎉</p>, clear: true},
@@ -42,6 +42,8 @@ class App extends React.Component {
 
   handleChange(event) {
     if (this.state.currentPrompt === -1) return;
+    console.log(event.target.value);
+    console.log(prompts[this.state.currentPrompt].text);
     if (event.target.value.indexOf(prompts[this.state.currentPrompt].text) > -1)
       this.setState({taskCompleted: true, taskTimes: [...this.state.taskTimes, Date.now() - this.state.taskStartTime]});
     //this.setState({debug: event.target.value});
