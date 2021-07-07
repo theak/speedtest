@@ -42,9 +42,6 @@ class App extends React.Component {
 
   handleChange(event) {
     if (this.state.taskCompleted) return;
-    console.log(event.target.value);
-    console.log(prompts[this.state.currentPrompt].text);
-    console.log(event.target.value.indexOf(prompts[this.state.currentPrompt].text));
     if (event.target.value.indexOf(prompts[this.state.currentPrompt].text) > -1)
       this.setState({taskCompleted: true, taskTimes: [...this.state.taskTimes, Date.now() - this.state.taskStartTime]});
     //this.setState({debug: event.target.value});
@@ -70,9 +67,11 @@ class App extends React.Component {
       return (
         <div className="App">
           <div className="half">
-            <p>{promptIndicator}</p>
-            <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
+            <p>
+              {promptIndicator}
+            </p>
             <h1>{this.state.taskCompleted ? next : ''}</h1>
+            <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
           </div>
           <div className="bottom half">
             <textarea id="textbox" onChange={this.handleChange}></textarea>
@@ -95,7 +94,7 @@ class App extends React.Component {
 }
 
 function Next(props) {
-  const text = (props.currentPrompt === -1) ? "Tap to start" : "Next";
+  const text = (props.currentPrompt === -1) ? "Tap to start" : "Tap for next prompt";
   return <button onClick={props.onClick} type="button">{text}</button>
 }
 
