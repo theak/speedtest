@@ -80,8 +80,8 @@ class App extends React.Component {
             <p>
               {promptIndicator}
             </p>
-            <h1>{this.state.taskCompleted ? next : ''}</h1>
             <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
+            <h1>{this.state.taskCompleted ? next : ''}</h1>
           </div>
           <div className="bottom half">
             <textarea id="textbox" onChange={this.handleChange}></textarea>

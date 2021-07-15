@@ -36,6 +36,7 @@ div.bottom {
 .App-link {
   color: #61dafb;
 }
-h1 {
+h1, p {
   font-weight: normal;
+  margin: 15px;
 }
