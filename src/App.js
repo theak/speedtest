@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const strip = (str) => str.replaceAll(' ', '');
+    const strip = (str) => str.replaceAll(' ', '').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
     if (this.state.taskCompleted) return;
     console.log(event.target.value);
     console.log(prompts[this.state.currentPrompt].text);
@@ -58,6 +58,7 @@ class App extends React.Component {
     }, () => {
       if (this.state.currentPrompt < prompts.length) {
         const textbox = document.getElementById("textbox");
+        textbox.blur();
         if (this.state.shouldClear) textbox.value = "";
         textbox.focus();
       }
