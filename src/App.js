@@ -23,7 +23,7 @@ const prompts = [
 
   //Block 2:
   {html: <p>Hey I have some time off.  Are you interested in going backpacking next weekend?</p>},
-  {html: <p><i>Replace weekend with Friday</i>Hey I have some time off.  Are you interested in going backpacking next <b>Friday</b>?</p>, clear: true},
+  {html: <p><i>Replace weekend with Friday:</i>Hey I have some time off.  Are you interested in going backpacking next <b>Friday</b>?</p>, clear: true},
   {html: <p>I can drive, but my car is acting a bit funky</p>},
   {html: <p><i>Clear and replace text with:</i>My car is acting weird. Can you drive?</p>, clear: true},
   {html: <p>Also you should ask Anne to join.  She is so funny 😂</p>, clear: true},
@@ -33,7 +33,7 @@ const prompts = [
   //Block 3:
   {html: <p>Can you stop at the grocery store?</p>, clear: true},
   {html: <p>I want to start preparing that dinner for Thursday night.</p>},
-  {html: <p><i>Replace "Thursday" with "Wednesday"</i>I want to start preparing that dinner for <b>Wednesday</b> night.</p>, clear: true},
+  {html: <p><i>Replace "Thursday" with "Wednesday":</i>I want to start preparing that dinner for <b>Wednesday</b> night.</p>, clear: true},
   {html: <p>I want to try and make that new chili recipe.</p>},
   {html: <p><i>Clear and replace with:</i>What do you think about chili?</p>, clear: true},
   {html: <p>I was also thinking about making some paczki for next week</p>, clear: true},
