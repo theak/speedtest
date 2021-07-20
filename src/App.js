@@ -8,18 +8,38 @@ function stripHtml(html) {
   var txt = document.createElement("textarea");
   txt.innerHTML = str;
   const parts = txt.value.replace(/(<([^>]+)>)/gi, "").split(':');
+  return '';
   return parts[parts.length - 1];
 }
 
 const prompts = [
+  //Block 1:
   {html: <p>Hello how are you doing?</p>},
   {html: <p><i>Clear and replace text with:</i>Yo Jason, what's up?</p>, clear: true},
   {html: <p>I would love to catch up. Are you free on Thursday night for a beer?</p>, clear: false},
   {html: <p><i>Change Thursday to Friday:</i>I would love to catch up. Are you free on <b>Friday</b> night for a beer?</p>, clear: true},
-  {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it's my birthday so I want to start the celebration early 🎂 🎉</p>, clear: true},
-  {html: <p>I will ask Kathryn and John if they want to join as well</p>, clear: true},
-  {html: <p>She always talks about calcio</p>, clear: true},
-  {html: <p>Anyways, I hope she can join us</p>, clear: true},
+  {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it's my birthday so I want to start the celebration early 🎂</p>, clear: true},
+  {html: <p>I was thinking we could meet at teske</p>, clear: true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true},
+
+  //Block 2:
+  {html: <p>Hey I have some time off.  Are you interested in going backpacking next weekend?</p>},
+  {html: <p><i>Replace weekend with Friday</i>Hey I have some time off.  Are you interested in going backpacking next <b>Friday</b>?</p>, clear: true},
+  {html: <p>I can drive, but my car is acting a bit funky</p>},
+  {html: <p><i>Clear and replace text with:</i>My car is acting weird. Can you drive?</p>, clear: true},
+  {html: <p>Also you should ask Anne to join.  She is so funny 😂</p>, clear: true},
+  {html: <p>I am happy to go anywhere but I was thinking about going to mount monadnock</p>, clear: true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true},
+
+  //Block 3:
+  {html: <p>Can you stop at the grocery store?</p>, clear: true},
+  {html: <p>I want to start preparing that dinner for Thursday night.</p>},
+  {html: <p><i>Replace "Thursday" with "Wednesday"</i>I want to start preparing that dinner for <b>Wednesday</b> night.</p>, clear: true},
+  {html: <p>I want to try and make that new chili recipe.</p>},
+  {html: <p><i>Clear and replace with:</i>What do you think about chili?</p>, clear: true},
+  {html: <p>I was also thinking about making some paczki for next week</p>, clear: true},
+  {html: <p>Thank you ❤️</p>, clear: true},
+
 ];
 
 for (var i = 0; i < prompts.length; i++) {
@@ -53,8 +73,9 @@ class App extends React.Component {
   handleNext(event) {
     this.setState({
       shouldClear: this.state.currentPrompt < 0 || prompts[this.state.currentPrompt].clear,
+      taskCompleted: ((this.state.currentPrompt + 1) < prompts.length) && prompts[this.state.currentPrompt + 1].break,
       currentPrompt: this.state.currentPrompt + 1,
-      taskCompleted: false, taskStartTime: Date.now()
+      taskStartTime: Date.now()
     }, () => {
       if (this.state.currentPrompt < prompts.length) {
         const textbox = document.getElementById("textbox");
