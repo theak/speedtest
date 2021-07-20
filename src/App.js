@@ -19,7 +19,7 @@ const prompts = [
   {html: <p><i>Change Thursday to Friday:</i>I would love to catch up. Are you free on <b>Friday</b> night for a beer?</p>, clear: true},
   {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it's my birthday so I want to start the celebration early 🎂</p>, clear: true},
   {html: <p>I was thinking we could meet at teske</p>, clear: true},
-  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true, clear: true},
 
   //Block 2:
   {html: <p>Hey I have some time off.  Are you interested in going backpacking next weekend?</p>},
@@ -28,7 +28,7 @@ const prompts = [
   {html: <p><i>Clear and replace text with:</i>My car is acting weird. Can you drive?</p>, clear: true},
   {html: <p>Also you should ask Anne to join.  She is so funny 😂</p>, clear: true},
   {html: <p>I am happy to go anywhere but I was thinking about going to mount monadnock</p>, clear: true},
-  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true, clear: true},
 
   //Block 3:
   {html: <p>Can you stop at the grocery store?</p>, clear: true},
