@@ -8,7 +8,6 @@ function stripHtml(html) {
   var txt = document.createElement("textarea");
   txt.innerHTML = str;
   const parts = txt.value.replace(/(<([^>]+)>)/gi, "").split(':');
-  return '';
   return parts[parts.length - 1];
 }
 
