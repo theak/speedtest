@@ -14,7 +14,7 @@ function stripHtml(html) {
 const prompts = [
   //Block 1:
   {html: <p>Hello how are you doing?</p>},
-  {html: <p><i>Clear and replace text with:</i>Yo Jason, what's up?</p>, clear: true},
+  {html: <p><i><b>Clear and replace text</b> with:</i>Yo Jason, what's up?</p>, clear: true},
   {html: <p>I would love to catch up. Are you free on Thursday night for a beer?</p>, clear: false},
   {html: <p><i>Change Thursday to Friday:</i>I would love to catch up. Are you free on <b>Friday</b> night for a beer?</p>, clear: true},
   {html: <p><i>Insert cake emoji and party emoji:</i>Saturday it's my birthday so I want to start the celebration early 🎂</p>, clear: true},
@@ -25,9 +25,9 @@ const prompts = [
   {html: <p>Hey I have some time off.  Are you interested in going backpacking next weekend?</p>},
   {html: <p><i>Replace weekend with Friday:</i>Hey I have some time off.  Are you interested in going backpacking next <b>Friday</b>?</p>, clear: true},
   {html: <p>I can drive, but my car is acting a bit funky</p>},
-  {html: <p><i>Clear and replace text with:</i>My car is acting weird. Can you drive?</p>, clear: true},
-  {html: <p>Also you should ask Anne to join.  She is so funny 😂</p>, clear: true},
-  {html: <p>I am happy to go anywhere but I was thinking about going to mount monadnock</p>, clear: true},
+  {html: <p><i><b>Clear and replace text</b> with:</i>My car is acting weird. Can you drive?</p>, clear: true},
+  {html: <p><i>Add laughing emoji:</i>Also you should ask Anne to join.  She is so funny 😂</p>, clear: true},
+  {html: <p>I am happy to go anywhere but I was thinking about going to Mount Monadnock</p>, clear: true},
   {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true, clear: true},
 
   //Block 3:
@@ -37,7 +37,7 @@ const prompts = [
   {html: <p>I want to try and make that new chili recipe.</p>},
   {html: <p><i>Clear and replace with:</i>What do you think about chili?</p>, clear: true},
   {html: <p>I was also thinking about making some paczki for next week</p>, clear: true},
-  {html: <p>Thank you ❤️</p>, clear: true},
+  {html: <p><i>Add heart eyes emoji:</i>Thank you 😍</p>, clear: true},
 
 ];
 
@@ -61,7 +61,7 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const strip = (str) => str.replaceAll(' ', '').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+    const strip = (str) => str.replaceAll(' ', '').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"').toLowerCase();
     if (this.state.taskCompleted) return;
     console.log(event.target.value);
     console.log(prompts[this.state.currentPrompt].text);
@@ -100,11 +100,11 @@ class App extends React.Component {
             <p>
               {promptIndicator}
             </p>
-            <h1>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h1>
-            <h1>{this.state.taskCompleted ? next : ''}</h1>
+            <h2>{(this.state.currentPrompt in prompts) ? prompts[this.state.currentPrompt].html : ''}</h2>
+            <h2>{this.state.taskCompleted ? next : ''}</h2>
           </div>
           <div className="bottom half">
-            <textarea id="textbox" onChange={this.handleChange}></textarea>
+            <textarea rows="4" id="textbox" onChange={this.handleChange}></textarea>
           </div>
         </div>
       );
