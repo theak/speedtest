@@ -38,7 +38,24 @@ const prompts = [
   {html: <p><i>Clear and replace with:</i>What do you think about chili?</p>, clear: true},
   {html: <p>I was also thinking about making some paczki for next week</p>, clear: true},
   {html: <p><i>Add heart eyes emoji:</i>Thank you 😍</p>, clear: true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true, clear: true},
 
+  //Block 4:
+  {html: <p>Hey can I borrow your chainsaw next weekend?</p>},
+  {html: <p><i>Change next to this:</i>Hey can I borrow your chainsaw <b>this</b> weekend?</p>, clear: true},
+  {html: <p>I could probably use an extra hand</p>},
+  {html: <p><i><b>Clear and replace text</b> with</i>Could you also give me a hand?</p>, clear: true},
+  {html: <p>When we are done I can take you to go get some akvavit</p>, clear: true},
+  {html: <p><i>Insert thank you emoji:</i>Thank you 🙏</p>, clear:true},
+  {html: <p><i>Take a break, then tap for next prompt when you're ready...</i></p>, break: true, clear: true},
+
+  //Block 5:
+  {html: <p>Where do you want to go for vacation?</p>, clear:true},
+  {html: <p>August looks pretty good to me</p>},
+  {html: <p><i>Change August to September:</i><b>September</b> looks good to me</p>, clear: true},
+  {html: <p>How do you feel about going to the keweenaw?</p>},
+  {html: <p><i><b>Clear and replace text</b> with</i>I was thinking about going to the upper peninsula.</p>, clear: true},
+  {html: <p><i>Insert smiley emoji:</i>This is going to be so much fun 😊</p>, clear:true},
 ];
 
 for (var i = 0; i < prompts.length; i++) {
