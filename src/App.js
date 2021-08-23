@@ -55,7 +55,7 @@ const prompts = [
   {html: <p><i>Change August to September:</i><b>September</b> looks good to me</p>, clear: true},
   {html: <p>How do you feel about going to the keweenaw?</p>},
   {html: <p><i><b>Clear and replace text</b> with:</i>I was thinking about going to the upper peninsula.</p>, clear: true},
-  {html: <p><i>Insert smiley emoji:</i>This is going to be so much fun 😊</p>, clear:true},
+  {html: <p><i>Insert smiley emoji:</i>This is going to be so much fun 🙂</p>, clear:true},
 ];
 
 for (var i = 0; i < prompts.length; i++) {
