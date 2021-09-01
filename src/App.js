@@ -32,9 +32,9 @@ const prompts = [
 
   //Block 3:
   {html: <p>Can you stop at the grocery store?</p>, clear: true},
-  {html: <p>I want to start preparing that dinner for Thursday night.</p>},
-  {html: <p><i>Replace "Thursday" with "Wednesday":</i>I want to start preparing that dinner for <b>Wednesday</b> night.</p>, clear: true},
-  {html: <p>I want to try and make that new chili recipe.</p>},
+  {html: <p>I want to start preparing that dinner for Thursday night</p>},
+  {html: <p><i>Replace "Thursday" with "Wednesday":</i>I want to start preparing that dinner for <b>Wednesday</b> night</p>, clear: true},
+  {html: <p>I want to try and make that new chili recipe</p>},
   {html: <p><i>Clear and replace with:</i>What do you think about chili?</p>, clear: true},
   {html: <p>I was also thinking about making some paczki for next week</p>, clear: true},
   {html: <p><i>Add heart eyes emoji:</i>Thank you 😍</p>, clear: true},
@@ -54,7 +54,7 @@ const prompts = [
   {html: <p>August looks pretty good to me</p>},
   {html: <p><i>Change August to September:</i><b>September</b> looks good to me</p>, clear: true},
   {html: <p>How do you feel about going to the keweenaw?</p>},
-  {html: <p><i><b>Clear and replace text</b> with:</i>I was thinking about going to the upper peninsula.</p>, clear: true},
+  {html: <p><i><b>Clear and replace text</b> with:</i>I was thinking about going to the upper peninsula</p>, clear: true},
   {html: <p><i>Insert smiley emoji:</i>This is going to be so much fun 🙂</p>, clear:true},
 ];
 
